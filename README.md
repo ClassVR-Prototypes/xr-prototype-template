@@ -18,16 +18,22 @@ create, check, share and publish an app. Nothing to install.
    Source: GitHub Actions**. One dropdown, once.
 3. Open [claude.ai/code](https://claude.ai/code), pick the new repository, and
    type what you want: *"Make a new VR app called Planet Walk."*
-4. When Claude finishes, press **Create PR**, then **Merge** on GitHub. A
-   minute or two later the link Claude gave you is live:
-   `https://<owner>.github.io/<repo>/planet-walk/`
+4. When Claude says it's done, wait a couple of minutes and open the link it
+   gave you: `https://<owner>.github.io/<repo>/planet-walk/`. Publishing
+   happens on its own — nothing to press.
 
 Open the link on a desktop to look around (click, then move the mouse; W/A/S/D
 to walk). Open it in the headset's browser — or scan a QR code of it — and
 press **Enter VR**.
 
 From then on it is conversation: "add a table", "make the sky darker", "put a
-sign here". Every change ends with a refreshed link.
+sign here". Each finished change goes live a couple of minutes later. If you
+want to make several changes before anything goes live, say "don't publish
+yet" and then "publish" when you're ready.
+
+Curious how the work is organised? Open the repository's **Commits** on
+GitHub: Claude saves each change as its own step with a plain description, the
+way a careful developer would, so the history is readable.
 
 ## What's in here
 
@@ -37,6 +43,7 @@ kit/                         the ClassVR Prototyping Kit (git submodule) — don
 AGENTS.md                    instructions any AI assistant reads (Codex, Copilot, Cursor, Gemini CLI…)
 CLAUDE.md                    the same, for Claude Code
 .github/workflows/pages.yml  publishes every app on main to GitHub Pages
+.github/workflows/auto-publish.yml  puts Claude's finished work on main — no PR to merge (delete it to require review)
 .github/scripts/build_pages.py   assembles the site: one folder per app → /<slug>/
 .github/workflows/update-kit.yml brings the kit up to date (Mondays, or Actions → Run workflow)
 <App Name>/                  each app: index.html, xr-project.json, local libraries
