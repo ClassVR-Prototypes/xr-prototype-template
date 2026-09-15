@@ -1,8 +1,10 @@
 @AGENTS.md
 
-The ClassVR Prototyping Kit is registered as a plugin from `./kit` by
-`.claude/settings.json`, so use its skills directly: `/new-xr-app`,
-`/share-xr-app`, `/preview-xr-app`, `/publish-xr-app`, `/check-headset`, and
-`xr-app-rules` on every edit. If the skills are missing, `kit/` is probably an
-empty folder — run `git submodule update --init --recursive`, then tell the
-user to start a new session so the kit loads.
+The ClassVR Prototyping Kit is registered as a plugin by
+`.claude/settings.json`, loaded straight from its GitHub repository
+(`ClassVR-Prototypes/classvr-prototyping-kit`) so it is there even in a cloud
+session, where `kit/` is not checked out. Use its skills directly:
+`/new-xr-app`, `/share-xr-app`, `/preview-xr-app`, `/publish-xr-app`,
+`/check-headset`, and `xr-app-rules` on every edit. If the skills are missing,
+read the `SKILL.md` files from `kit/` instead — run
+`git submodule update --init --recursive` first if that folder is empty.
