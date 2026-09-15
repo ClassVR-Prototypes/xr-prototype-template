@@ -31,9 +31,10 @@ sign here". Each finished change goes live a couple of minutes later. If you
 want to make several changes before anything goes live, say "don't publish
 yet" and then "publish" when you're ready.
 
-Curious how the work is organised? Open the repository's **Commits** on
-GitHub: Claude saves each change as its own step with a plain description, the
-way a careful developer would, so the history is readable.
+Curious how the work is organised? Open the repository's **Pull requests**
+and **Commits** on GitHub: each finished piece of work is a pull request with
+a description, made of small commits with plain messages, the way a careful
+developer would do it — so the history is readable, and a decent example.
 
 ## What's in here
 
@@ -43,18 +44,27 @@ kit/                         the ClassVR Prototyping Kit (git submodule) — don
 AGENTS.md                    instructions any AI assistant reads (Codex, Copilot, Cursor, Gemini CLI…)
 CLAUDE.md                    the same, for Claude Code
 .github/workflows/pages.yml  publishes every app on main to GitHub Pages
-.github/workflows/auto-publish.yml  puts Claude's finished work on main — no PR to merge (delete it to require review)
+.github/workflows/auto-publish.yml  safety net: publishes a [publish] commit if Claude can't merge its own PR
 .github/scripts/build_pages.py   assembles the site: one folder per app → /<slug>/
 .github/workflows/update-kit.yml brings the kit up to date (Mondays, or Actions → Run workflow)
+update-kit.cmd / update-kit.sh   the same, by double-click (Windows) or one command (Mac/Linux/Claude Code)
 <App Name>/                  each app: index.html, xr-project.json, local libraries
 ```
 
 ## Updating the kit
 
-The kit is pinned to a version so an update can't surprise you mid-project.
-To move to the latest: **Actions → "Update the prototyping kit" → Run
-workflow** (or wait for Monday). In Claude Code, "update the kit" does the
-same.
+The bundled kit (`kit/`) is pinned to a version so an update can't surprise
+you mid-project. Three ways to move to the latest, pick whichever is handy:
+
+- **Double-click `update-kit.cmd`** (Windows) or run `update-kit.sh`
+  (Mac/Linux) in your copy of the project. It updates, saves, and pushes — or
+  tells you to press Push in GitHub Desktop if it can't.
+- In Claude Code, say **"update the kit"**.
+- On GitHub: **Actions → "Update the prototyping kit" → Run workflow** (it
+  also runs by itself every Monday).
+
+Claude Code itself always uses the latest kit regardless — `kit/` is the copy
+for other AI tools and for reading.
 
 ## Other AI tools
 
